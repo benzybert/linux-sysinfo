@@ -1,6 +1,9 @@
 #!/bin/bash
-echo "System Info:"
-uname -a
-df -h
-uptime
-
+ts=$(date +"%F %T")
+{
+  echo "=== System Info at $ts ==="
+  uname -a
+  df -h
+  uptime
+  echo
+} | tee -a logs/sysinfo.log
